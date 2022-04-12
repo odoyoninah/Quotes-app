@@ -10,9 +10,12 @@ import { Quotes } from '../quotes';
 export class QuotesComponent implements OnInit {
 
   quotes: Quotes[] = [
-    new Quotes(1, 'firstquote', 1, 0),
-    new Quotes(2, 'secondquote', 0, 0),
-    new Quotes(3, 'thirdquote', 0, 0),
+    new Quotes(1, 'Do what makes you happy', 1, 0),
+    new Quotes(2, 'It is what it is', 0, 0),
+    new Quotes(3, 'Dont quit', 0, 0),
+    new Quotes(56, 'You are enough', 0, 0),
+    new Quotes(78, 'Lay low and boss up', 0, 0),
+    new Quotes(31, 'Keep going', 0, 0),
     
   ]
   arr: number[] = this.quotes.map(quote => quote.upvotes)
