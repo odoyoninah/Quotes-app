@@ -8,11 +8,11 @@ import { Quotes } from '../quotes';
   styleUrls: ['./quoteform.component.css']
 })
 export class QuoteformComponent implements OnInit {
-  public newQuote = new Quotes(0, '', 0, 0);
-  @Output() addQuote = new EventEmitter<Quote>();
+  public newQuote = new Quotes(0, '', 0, 0,'','',);
+  @Output() addQuote = new EventEmitter<Quotes>();
   submitQuote(){
     this.addQuote.emit(this.newQuote);
-    // this.newQuote = new Quotes(0, '', 0, 0);
+    this.newQuote = new Quotes(0, '', 0, 0,'','',);
       }
 
   constructor() { }

@@ -19,7 +19,7 @@ export class QuotesComponent implements OnInit {
     new Quotes(31, 'Keep going', 0, 0,'coco','vimeo'),
     
   ]
-  addNewQuote(quote: Quotes) {
+  addNewQuote(quote: any) {
     let quoteLength = this.quotes.length;
     quote.id = quoteLength+1;
     this.quotes.push(quote);
