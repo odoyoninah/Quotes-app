@@ -1,57 +1,69 @@
 <!-- <p>quotes works!</p> -->
-<ul *ngFor = 'let quote of quotes;let i=index'>
-    <div *ngIf="quote.upvotes == highest; then highlight else empty"></div>
-    <ng-template #highlight>
-        <li appHighlight>{{ quote.quote }}
-            <br><br>
-            <span class="text-muted author">{{ quote.author }}
-            {{quote.author}}
-            </span><br><br>
-
-            <div class=up>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div *ngFor = 'let quote of quotes;let i=index'>
+                <div *ngIf="quote === highestVotes; then highlight else empty"></div>
+                <ng-template #highlight>
+                    <div appHighlight>{{ quote.quote }}
+                        <br><br>
+                        <span class="text-muted author">{{ quote.author }}
+                        {{quote.author}}
+                        </span><br><br>
             
-            <button (click)="upvote(i,true)" type="button" class="btn btn-info">Upvotes</button>
-            {{quote.upvotes}}
-            </div><br>
-
-            <div class=down>
-   
-             <button (click)="downvote(i,true)" type="button" class="btn btn-warning">Downvotes</button>
-             {{quote.downvotes}}
-            </div>
-
+                        <div class=up>
+                        
+                        <button (click)="upvote(i)" type="button" class="btn btn-info">Upvotes</button>
+                        {{quote.upvotes}}
+                        </div><br>
             
-            
-            <app-quotedetails></app-quotedetails>
-
-        </li>
-    </ng-template>
-    <ng-template #empty>
-        <li appHighlight>{{ quote.quote }}
-            <br><br>
-            
-
-            <span class="text-muted author">{{ quote.author }}
-            {{quote.author}}
-            </span><br><br>
-
-            <div class=up>
-                
-                <button (click)="upvote(i,true)" type="button" class="btn btn-info">Upvotes</button>
-                {{quote.upvotes}}
-                </div><br>
-    
-                <div class=down>
-                
-                 <button (click)="downvote(i,true)" type="button" class="btn btn-warning">Downvotes</button>
-                 {{quote.downvotes}}
-                </div>
-            
-        
-            <app-quotedetails></app-quotedetails>
-        </li>    
-    </ng-template>
+                        <div class=down>
                
-</ul>
+                         <button (click)="downvote(i)" type="button" class="btn btn-warning">Downvotes</button>
+                         {{quote.downvotes}}
+                        </div>
+                        <p>created:{{quote.created_at|datecount}}</p>
+            
+                        
+                        
+                        <app-quotedetails></app-quotedetails>
+            
+                    </div>
+                </ng-template>
+                <ng-template #empty>
+                    <div >{{ quote.quote }}
+                        <br><br>
+                        
+            
+                        <span class="text-muted author">{{ quote.author }}
+                        {{quote.author}}
+                        </span><br><br>
+            
+                        <div class=up>
+                            
+                            <button (click)="upvote(i)" type="button" class="btn btn-info">Upvotes</button>
+                            {{quote.upvotes}}
+                            </div><br>
+                
+                            <div class=down>
+                            
+                             <button (click)="downvote(i)" type="button" class="btn btn-warning">Downvotes</button>
+                             {{quote.downvotes}}
+                            </div>
+                            <p>created:{{quote.created_at|datecount}}</p>
+                        
+                    
+                        <app-quotedetails></app-quotedetails>
+                        </div>    
+                </ng-template>
+                           
+            </div>
+            
+            
+        </div>  
+     <div class="col-md-6">
+        <app-quoteform (addQuote)="addNewQuote($event)"></app-quoteform>
+        </div> 
+    </div>
 
-<app-quoteform (addQuote)="addNewQuote($event)"></app-quoteform>
+</div>

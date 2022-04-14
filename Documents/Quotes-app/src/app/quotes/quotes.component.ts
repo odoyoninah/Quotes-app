@@ -11,12 +11,9 @@ export class QuotesComponent implements OnInit {
   
 
   quotes: Quotes[] = [
-    new Quotes(1, 'Do what makes you happy', 1, 0,'coco','vimeo'),
-    new Quotes(2, 'It is what it is', 0, 0,'Odos','Passh'),
-    new Quotes(3, 'Dont quit', 0, 0,'hunk','nhyi'),
-    new Quotes(56, 'You are enough', 0, 0,'Licious','htyu'),
-    new Quotes(78, 'Lay low and boss up', 0, 0,'dthi','Niug'),
-    new Quotes(31, 'Keep going', 0, 0,'Este','Estero'),
+    new Quotes(1, 'Do what makes you happy','coco','vimeo',new Date(2019,3,14)),
+    new Quotes(2, 'It is what it is','Odos','Passh',new Date(2019,8,14)),
+     new Quotes(31, 'Keep going','Este','Estero',new Date(2019,7,14)),
     
   ]
   addNewQuote(quote: any) {
@@ -24,12 +21,23 @@ export class QuotesComponent implements OnInit {
     quote.id = quoteLength+1;
     this.quotes.push(quote);
   }
-  upvote(index:number,x:boolean){
+
+  highestVotes:Quotes = new Quotes(0, '', '', '', new Date());
+
+  upvote(index:number){
     this.quotes[index].upvotes++;
+    for(let i=0; i<this.quotes.length; i++){
+      if(this.quotes[i].upvotes > this.highestVotes.upvotes){
+        this.highestVotes = this.quotes[i];
+      }
+    }
+    // if(this.quotes[index].upvotes > this.highestVotes.upvotes){
+    //   this.highestVotes = this.quotes[index];
+    
   }
 
-  downvote(index:number,x:boolean){
-    this.quotes[index].downvotes--;
+  downvote(index:number){
+    this.quotes[index].downvotes++;
   }
     
   arr: number[] = this.quotes.map(quote => quote.upvotes)

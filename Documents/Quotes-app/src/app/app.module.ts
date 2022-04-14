@@ -12,6 +12,7 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { HighlightDirective } from './highlight.directive';
 import { QuoteformComponent } from './quoteform/quoteform.component';
 import { QuotedetailsComponent } from './quotedetails/quotedetails.component';
+import { DatecountPipe } from './datecount.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { QuotedetailsComponent } from './quotedetails/quotedetails.component';
     HighlightDirective,
     QuoteformComponent,
     QuotedetailsComponent,
+    DatecountPipe,
 
   ],
   imports: [
