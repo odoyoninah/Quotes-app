@@ -24,6 +24,13 @@ export class QuotesComponent implements OnInit {
     quote.id = quoteLength+1;
     this.quotes.push(quote);
   }
+  upvote(index:number,x:boolean){
+    this.quotes[index].upvotes++;
+  }
+
+  downvote(index:number,x:boolean){
+    this.quotes[index].downvotes--;
+  }
     
   arr: number[] = this.quotes.map(quote => quote.upvotes)
   highest = Math.max(...this.arr)

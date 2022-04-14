@@ -4,9 +4,22 @@
     <ng-template #highlight>
         <li appHighlight>{{ quote.quote }}
             <br><br>
+            <span class="text-muted author">{{ quote.author }}
             {{quote.author}}
+            </span><br><br>
+
+            <div class=up>
+            
+            <button (click)="upvote(i,true)" type="button" class="btn btn-info">Upvotes</button>
             {{quote.upvotes}}
-            {{quote.downvotes}}
+            </div><br>
+
+            <div class=down>
+   
+             <button (click)="downvote(i,true)" type="button" class="btn btn-warning">Downvotes</button>
+             {{quote.downvotes}}
+            </div>
+
             
             
             <app-quotedetails></app-quotedetails>
@@ -15,10 +28,25 @@
     </ng-template>
     <ng-template #empty>
         <li appHighlight>{{ quote.quote }}
-            <br><br> 
+            <br><br>
+            
+
+            <span class="text-muted author">{{ quote.author }}
             {{quote.author}}
-            {{quote.upvotes}}
-            {{quote.downvotes}}
+            </span><br><br>
+
+            <div class=up>
+                
+                <button (click)="upvote(i,true)" type="button" class="btn btn-info">Upvotes</button>
+                {{quote.upvotes}}
+                </div><br>
+    
+                <div class=down>
+                
+                 <button (click)="downvote(i,true)" type="button" class="btn btn-warning">Downvotes</button>
+                 {{quote.downvotes}}
+                </div>
+            
         
             <app-quotedetails></app-quotedetails>
         </li>    
