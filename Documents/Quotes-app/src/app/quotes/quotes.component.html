@@ -3,12 +3,22 @@
     <div *ngIf="quote.upvotes == highest; then highlight else empty"></div>
     <ng-template #highlight>
         <li appHighlight>{{ quote.quote }}
+            <br><br>
+            {{quote.author}}
+            {{quote.upvotes}}
+            {{quote.downvotes}}
+            
+            
             <app-quotedetails></app-quotedetails>
 
         </li>
     </ng-template>
     <ng-template #empty>
-        <li appHighlight>{{ quote.quote }} 
+        <li appHighlight>{{ quote.quote }}
+            <br><br> 
+            {{quote.author}}
+            {{quote.upvotes}}
+            {{quote.downvotes}}
         
             <app-quotedetails></app-quotedetails>
         </li>    
